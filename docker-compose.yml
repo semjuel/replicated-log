@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  master_node:
+    build:
+      dockerfile: docker/master/Dockerfile
+      context: ./
+
+  secondary_node_1:
+    build:
+      dockerfile: docker/secondary/Dockerfile
+      context: ./
+    ports:
+      - "8086:8080"
+
+  secondary_node_2:
+    build:
+      dockerfile: docker/secondary/Dockerfile
+      context: ./
+    ports:
+      - "8087:8080"
